@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,7 @@ public class jarvis {
 	private String jname;
 	private String tech;
 	@Autowired//Now it will try to search for the object in the spring container
+	@Qualifier("lap1")
 	private Laptop laptop;
 	public int getJid() {
 		return jid;
