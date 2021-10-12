@@ -11,7 +11,7 @@ public class DemoApplication {
 		ConfigurableApplicationContext context= SpringApplication.run(DemoApplication.class, args);
 		jarvis j=context.getBean(jarvis.class);
 		j.show();
-		System.out.println("heyyyyyyyyyyyy");
+		
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 //Spring framework works on singleton design pattern
 //So in singleton you get only one instance
 @Component
-@Scope(value="prototype")//by creating prototype it means it will not create an instance by default
+//@Scope(value="prototype")//by creating prototype it means it will not create an instance by default
 //the only moment you ask for getBean at that point it will create an object for you
 public class jarvis {
 	private int jid;
@@ -17,6 +18,8 @@ public class jarvis {
 	}
 	private String jname;
 	private String tech;
+	@Autowired//Now it will try to search for the object in the spring container
+	private Laptop laptop;
 	public int getJid() {
 		return jid;
 	}
@@ -37,5 +40,13 @@ public class jarvis {
 	}
 	public void show() {
 		System.out.println("Hey component");
+		laptop.compile();
 	}
+	public Laptop getLaptop() {
+		return laptop;
+	}
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+	
 }
